@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  jellyseerr-aniworld-bridge:
+    build: .
+    ports:
+      - "${WEB_PORT:-8081}:8081"
+    volumes:
+      - ./data/anime:/data/anime
+    environment:
+      - JELLYSEERR_URL=${JELLYSEERR_URL}
+      - JELLYSEERR_API_KEY=${JELLYSEERR_API_KEY}
+      - DOWNLOAD_PATH=/data/anime
+      - POLL_INTERVAL=${POLL_INTERVAL:-60}
+      - WEB_PORT=8081

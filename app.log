@@ -1,0 +1,5 @@
+INFO:     Will watch for changes in these directories: ['/app']
+ERROR:    [Errno 98] Address already in use
+INFO:     127.0.0.1:55390 - "GET / HTTP/1.1" 200 OK
+2025-12-18 22:55:02,373 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellyseerr AniWorld Bridge</title>
+    <style>
+        body { font-family: sans-serif; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        .status-QUEUED { color: #888; }
+        .status-RUNNING { color: #00f; }
+        .status-COMPLETED { color: #0f0; }
+        .status-FAILED { color: #f00; }
+        .status-CANCELLED { color: #f80; }
+    </style>
+</head>
+<body>
+    <h1>Download Jobs</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Show Name</th>
+                <th>Season</th>
+                <th>Episode</th>
+                <th>Status</th>
+                <th>Progress</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for job in jobs %}
+            <tr>
+                <td>{{ job.id }}</td>
+                <td>{{ job.show_name }}</td>
+                <td>{{ job.season }}</td>
+                <td>{{ job.episode }}</td>
+                <td class="status-{{ job.status.name }}">{{ job.status.name }}</td>
+                <td>{{ "%.2f"|format(job.progress) }}%</td>
+                <td>
+                    {% if job.status.name in ['QUEUED', 'RUNNING'] %}
+                    <form action="/api/jobs/{{ job.id }}/cancel" method="post" style="display:inline;">
+                        <button type="submit">Cancel</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
