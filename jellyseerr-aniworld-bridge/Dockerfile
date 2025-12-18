@@ -10,7 +10,7 @@ COPY . /app
 # Install any needed packages specified in pyproject.toml
 RUN pip install --no-cache-dir poetry
 RUN poetry config virtualenvs.create false
-RUN poetry install --no-dev
+RUN poetry install --without dev
 
 # Run the main application
 CMD ["python", "main.py"]
