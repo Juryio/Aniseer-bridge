@@ -46,6 +46,8 @@ The following environment variables are used for configuration:
     JELLYSEERR_API_KEY=your-api-key
     ```
 
+**Note on Docker Networking:** When running this service in Docker, `localhost` in the `JELLYSEERR_URL` will not connect to a service running on your host machine. Use `http://host.docker.internal:5055` instead. This special DNS name resolves to your host machine's IP from within the Docker container.
+
 3.  **Run with Docker Compose:**
 
     ```bash
