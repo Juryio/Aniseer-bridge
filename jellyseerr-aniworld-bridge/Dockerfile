@@ -4,13 +4,18 @@ FROM python:3.9-slim
 # Set the working directory in the container
 WORKDIR /app
 
-# Copy the project files into the container
-COPY . /app
-
-# Install any needed packages specified in pyproject.toml
+# Install poetry
 RUN pip install --no-cache-dir poetry
 RUN poetry config virtualenvs.create false
-RUN poetry install --without dev
+
+# Copy dependency definitions
+COPY pyproject.toml poetry.lock ./
+
+# Install dependencies
+RUN poetry install --only main --no-root
+
+# Copy the rest of the application code
+COPY . .
 
 # Run the main application
 CMD ["python", "main.py"]

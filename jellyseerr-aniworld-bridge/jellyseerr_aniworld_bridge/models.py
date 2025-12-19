@@ -30,8 +30,20 @@ class DownloadJob(Base):
     filepath = Column(String, nullable=True)
 
 
-def get_db_session(database_url: str):
+engine = None
+SessionLocal = None
+
+def initialize_db(database_url: str):
+    global engine, SessionLocal
     engine = create_engine(database_url, connect_args={"check_same_thread": False})
     SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
     Base.metadata.create_all(bind=engine)
-    return SessionLocal()
+
+def get_db_session():
+    if SessionLocal is None:
+        raise Exception("Database not initialized. Call initialize_db() first.")
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

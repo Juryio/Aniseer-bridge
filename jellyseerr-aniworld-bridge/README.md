@@ -30,6 +30,10 @@ The following environment variables are used for configuration:
 
 ## Usage
 
+### Disclaimer
+
+This bridge relies on a third-party library (`aniworld-downloader`) that is not designed to be used as a library and relies on global state. This integration is therefore fragile and may break if the library is updated. The bridge uses a thread lock to ensure that downloads are processed one at a time to avoid race conditions.
+
 1.  **Clone the repository:**
 
     ```bash

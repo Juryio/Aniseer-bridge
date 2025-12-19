@@ -128,7 +128,18 @@ class BridgeService:
             if filepath and filepath.exists():
                 job.filepath = str(filepath)
                 job.status = JobStatus.COMPLETED
-                self.jellyseerr_client.mark_request_as_available(job.request_id)
+
+                # Check if all jobs for this request are complete
+                all_jobs_complete = (
+                    self.db_session.query(DownloadJob)
+                    .filter(DownloadJob.request_id == job.request_id)
+                    .filter(DownloadJob.status != JobStatus.COMPLETED)
+                    .count()
+                    == 0
+                )
+
+                if all_jobs_complete:
+                    self.jellyseerr_client.mark_request_as_available(job.request_id)
             else:
                 job.status = JobStatus.FAILED
 
@@ -175,8 +186,7 @@ def get_bridge_service() -> BridgeService:
     from .aniworld_client import get_aniworld_client
     from .mapper import RequestMapper
 
-    settings = get_settings()
-    db_session = get_db_session(settings.database_url)
+    db_session = next(get_db_session())
     jellyseerr_client = get_jellyseerr_client()
     aniworld_client = get_aniworld_client()
     mapper = RequestMapper(aniworld_client)

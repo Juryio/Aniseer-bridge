@@ -10,16 +10,15 @@ class JellyseerrClient:
         self.base_url = base_url.rstrip('/')
         self.api_key = api_key
         self.headers = {"X-Api-Key": self.api_key}
+        self._client = httpx.Client()
 
     def _request(self, method: str, path: str, **kwargs) -> Any:
         url = f"{self.base_url}/api/v1{path}"
         try:
-            with httpx.Client() as client:
-                response = client.request(method, url, headers=self.headers, **kwargs)
-                response.raise_for_status()
-                return response.json()
+            response = self._client.request(method, url, headers=self.headers, **kwargs)
+            response.raise_for_status()
+            return response.json()
         except httpx.RequestError as e:
-            # Add logging here
             logging.error(f"Error communicating with Jellyseerr API: {e}")
             return None
 

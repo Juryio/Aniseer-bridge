@@ -1,1 +1,381 @@
+INFO:     Will watch for changes in these directories: ['/app']
+ERROR:    [Errno 98] Address already in use
+2025-12-19 01:03:10,679 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+INFO:     127.0.0.1:34340 - "GET / HTTP/1.1" 200 OK
+2025-12-19 01:04:10,723 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:05:10,766 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:06:10,813 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:07:10,899 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:08:10,946 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:09:10,989 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:10:11,031 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:11:11,124 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [19233]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/jellyseerr-aniworld-bridge/main.py", line 3, in <module>
+    from jellyseerr_aniworld_bridge.webapp.main import app
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 9, in <module>
+    from ..service import BridgeService, get_bridge_service
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 9, in <module>
+    from .aniworld_client import AniWorldClientWrapper
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py", line 6, in <module>
+    from aniworld.search import search_anime
+ImportError: cannot import name 'search_anime' from 'aniworld.search' (/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/aniworld/search.py). Did you mean: 'search_movie'?
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/mapper.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/jellyseerr-aniworld-bridge/main.py", line 3, in <module>
+    from jellyseerr_aniworld_bridge.webapp.main import app
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 9, in <module>
+    from ..service import BridgeService, get_bridge_service
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 9, in <module>
+    from .aniworld_client import AniWorldClientWrapper
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py", line 6, in <module>
+    from aniworld.search import search_anime
+ImportError: cannot import name 'search_anime' from 'aniworld.search' (/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/aniworld/search.py). Did you mean: 'search_movie'?
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Started server process [22671]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:12:52,286 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [22671]
+INFO:     Started server process [22702]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:12:58,315 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:13:58,359 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:14:58,404 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:15:58,450 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:16:58,493 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:17:58,535 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:18:58,577 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:19:58,620 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:20:58,665 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:21:58,707 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:45:35,053 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [22702]
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/jellyseerr-aniworld-bridge/main.py", line 3, in <module>
+    from jellyseerr_aniworld_bridge.webapp.main import app
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 9, in <module>
+    from ..service import BridgeService, get_bridge_service
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 9, in <module>
+    from .aniworld_client import AniWorldClientWrapper
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py", line 6, in <module>
+    from aniworld.search import search_anime
+ImportError: cannot import name 'search_anime' from 'aniworld.search' (/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/aniworld/search.py). Did you mean: 'search_movie'?
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 122, in spawn_main
+    exitcode = _main(fd, parent_sentinel)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 131, in _main
+    prepare(preparation_data)
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 246, in prepare
+    _fixup_main_from_path(data['init_main_from_path'])
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/multiprocessing/spawn.py", line 297, in _fixup_main_from_path
+    main_content = runpy.run_path(main_path,
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "/app/jellyseerr-aniworld-bridge/main.py", line 3, in <module>
+    from jellyseerr_aniworld_bridge.webapp.main import app
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 9, in <module>
+    from ..service import BridgeService, get_bridge_service
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 9, in <module>
+    from .aniworld_client import AniWorldClientWrapper
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py", line 6, in <module>
+    from aniworld.search import search_anime
+ImportError: cannot import name 'search_anime' from 'aniworld.search' (/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/aniworld/search.py). Did you mean: 'search_movie'?
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Started server process [25119]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:47:41,126 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [25119]
+INFO:     Started server process [25149]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:47:45,829 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:48:45,872 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:49:45,915 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [25149]
+INFO:     Started server process [26116]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:50:20,211 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26116]
+INFO:     Started server process [26145]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:50:40,057 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26145]
+INFO:     Started server process [26240]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:51:17,196 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:52:17,238 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:53:17,281 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:54:17,324 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [26240]
+INFO:     Started server process [27146]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:54:21,748 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/main.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27146]
+INFO:     Started server process [27230]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 01:54:42,533 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:55:42,576 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:56:42,638 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:57:42,700 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:58:42,751 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 01:59:42,817 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:00:42,870 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:01:42,913 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/aniworld_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [27230]
+INFO:     Started server process [29834]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 02:02:16,019 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:03:16,062 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:04:16,105 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/jellyseerr_client.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [29834]
+INFO:     Started server process [30565]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 02:04:44,233 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:05:44,236 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:06:44,239 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:07:44,258 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:08:44,262 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:09:44,265 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [30565]
+INFO:     Started server process [32254]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 02:09:50,713 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:10:50,716 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:11:50,719 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:12:50,722 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 02:13:50,725 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/models.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [32254]
+INFO:     Started server process [33445]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 677, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 566, in __aenter__
+    await self._router.startup()
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 654, in startup
+    await handler()
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 28, in startup_event
+    bridge_service = get_bridge_service()
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 190, in get_bridge_service
+    db_session = get_db_session(settings.database_url)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_db_session() takes 0 positional arguments but 1 was given
 
+ERROR:    Application startup failed. Exiting.
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py'. Reloading...
+INFO:     Started server process [33478]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 677, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 566, in __aenter__
+    await self._router.startup()
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 654, in startup
+    await handler()
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 28, in startup_event
+    bridge_service = get_bridge_service()
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 190, in get_bridge_service
+    db_session = get_db_session(settings.database_url)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_db_session() takes 0 positional arguments but 1 was given
+
+ERROR:    Application startup failed. Exiting.
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py'. Reloading...
+INFO:     Started server process [33505]
+INFO:     Waiting for application startup.
+ERROR:    Traceback (most recent call last):
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 677, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 566, in __aenter__
+    await self._router.startup()
+  File "/home/jules/.pyenv/versions/3.12.12/lib/python3.12/site-packages/starlette/routing.py", line 654, in startup
+    await handler()
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/webapp/main.py", line 30, in startup_event
+    bridge_service = get_bridge_service()
+                     ^^^^^^^^^^^^^^^^^^^^
+  File "/app/jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py", line 190, in get_bridge_service
+    db_session = get_db_session(settings.database_url)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: get_db_session() takes 0 positional arguments but 1 was given
+
+ERROR:    Application startup failed. Exiting.
+WARNING:  StatReload detected changes in 'jellyseerr-aniworld-bridge/jellyseerr_aniworld_bridge/service.py'. Reloading...
+INFO:     Started server process [37180]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+2025-12-19 16:14:01,219 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 16:15:01,224 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused
+2025-12-19 16:16:01,227 - ERROR - Error communicating with Jellyseerr API: [Errno 111] Connection refused
+ERROR:root:_request: Error communicating with Jellyseerr API: [Errno 111] Connection refused

@@ -1,4 +1,5 @@
 import logging
+import threading
 from pathlib import Path
 from typing import List, Dict, Optional
 from argparse import Namespace
@@ -14,8 +15,7 @@ from .config import get_settings
 class AniWorldClientWrapper:
     def __init__(self, download_path: str):
         self.download_path = Path(download_path)
-        # The new library doesn't need the arguments object to be configured globally.
-        # Instead, we pass the necessary options to the functions that need them.
+        self._lock = threading.Lock()
 
     def find_show(self, query: str) -> List[Dict]:
         """
@@ -31,6 +31,7 @@ class AniWorldClientWrapper:
     def download_episode(self, show: Dict, season_number: int, episode_number: int, progress_callback=None) -> Optional[Path]:
         """
         Downloads a specific episode of a show and returns the file path.
+        This method is thread-safe.
         """
         try:
             anime_slug = show.get("link")
@@ -80,13 +81,17 @@ class AniWorldClientWrapper:
             filename = f"{sanitized_title} - S{season_number:02}E{episode_number:03} - ({args.language}).mp4"
             expected_filepath = self.download_path / sanitized_title / filename
 
-            # The download function from the library needs the output_dir to be set in the arguments.
-            from aniworld.parser import arguments
-            arguments.output_dir = str(self.download_path)
+            with self._lock:
+                # WARNING: This is a fragile workaround to make the aniworld-downloader library work in a
+                # multi-threaded environment. The library uses a global `arguments` object, which is not
+                # thread-safe. This lock ensures that only one thread can modify the `output_dir` at a time.
+                # A better solution would be to refactor the library to avoid global state.
+                from aniworld.parser import arguments
+                arguments.output_dir = str(self.download_path)
 
-            logging.info(f"Starting download of {filename}")
-            download_action(anime_to_download, web_progress_callback=progress_callback)
-            logging.info(f"Finished download of {filename}")
+                logging.info(f"Starting download of {filename}")
+                download_action(anime_to_download, web_progress_callback=progress_callback)
+                logging.info(f"Finished download of {filename}")
 
             return expected_filepath
 
