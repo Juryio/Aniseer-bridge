@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import List, Dict, Optional
 from argparse import Namespace
 
-from aniworld.search import search_media
+from aniworld.search import search_anime
 from aniworld.menu import menu
 from aniworld.models import Anime, Episode
 from aniworld.action.download import download as download_action
@@ -22,7 +22,7 @@ class AniWorldClientWrapper:
         Finds shows on AniWorld based on a search query.
         """
         try:
-            results = search_media(keyword=query, only_return=True)
+            results = search_anime(keyword=query, only_return=True)
             return [r for r in results if r.get("type") == "anime"]
         except Exception as e:
             logging.error(f"Error finding show on AniWorld: {e}")
