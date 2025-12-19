@@ -13,5 +13,3 @@ services:
       - DOWNLOAD_PATH=/data/anime
       - POLL_INTERVAL=${POLL_INTERVAL:-60}
       - WEB_PORT=8081
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
