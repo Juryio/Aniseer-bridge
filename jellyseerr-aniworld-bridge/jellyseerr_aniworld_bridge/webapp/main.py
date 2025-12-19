@@ -1,6 +1,6 @@
 from typing import Optional
 from fastapi import FastAPI, Depends, Request
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 
@@ -53,3 +53,11 @@ def get_job(job_id: int, db: Session = Depends(lambda: get_db_session(get_settin
 def cancel_job_endpoint(job_id: int, bridge_service: BridgeService = Depends(get_bridge_service)):
     bridge_service.cancel_job(job_id)
     return {"message": "Job cancellation request received."}
+
+@app.post("/api/refresh")
+def force_refresh(bridge_service: BridgeService = Depends(get_bridge_service)):
+    """
+    Manually triggers a poll for new Jellyseerr requests.
+    """
+    bridge_service.process_pending_requests()
+    return RedirectResponse(url="/", status_code=303)
