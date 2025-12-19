@@ -9,7 +9,7 @@ python = "^3.9"
 fastapi = "^0.104.1"
 uvicorn = "^0.24.0"
 requests = "^2.31.0"
-aniworld-downloader = "^3.8.2"
+aniworld = {git = "https://github.com/phoenixthrush/AniWorld-Downloader.git"}
 sqlalchemy = "^2.0.23"
 jinja2 = "^3.1.2"
 pydantic-settings = "^2.1.0"

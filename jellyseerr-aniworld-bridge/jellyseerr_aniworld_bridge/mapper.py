@@ -9,18 +9,20 @@ class RequestMapper:
     def __init__(self, aniworld_client: AniWorldClientWrapper):
         self.aniworld_client = aniworld_client
 
-    def _construct_search_query(self, request: Dict) -> str:
+    def _construct_search_query(self, request: Dict) -> Optional[str]:
         """Constructs a search query from a Jellyseerr request."""
         media_info = request.get("media", {})
         title = media_info.get("name")
         original_title = media_info.get("originalName")
-        year = media_info.get("year")
 
         # Prioritize original (e.g., Japanese) title for anime
-        if original_title:
-            return f"{original_title}"
+        query = original_title or title
 
-        return f"{title}"
+        if not query or not query.strip():
+            logging.warning(f"Could not construct a valid search query for request ID {request.get('id')}. Skipping.")
+            return None
+
+        return query.strip()
 
     def map_request_to_show(self, request: Dict) -> Optional[Dict]:
         """

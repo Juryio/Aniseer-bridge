@@ -14,16 +14,8 @@ from .config import get_settings
 class AniWorldClientWrapper:
     def __init__(self, download_path: str):
         self.download_path = Path(download_path)
-        self.args = Namespace(
-            output_dir=str(self.download_path),
-            only_direct_link=False,
-            only_command=False,
-            language="de",  # Default to German
-            action="Download",
-            provider="Vidoza",
-            aniskip=False,
-            keep_watching=False
-        )
+        # The new library doesn't need the arguments object to be configured globally.
+        # Instead, we pass the necessary options to the functions that need them.
 
     def find_show(self, query: str) -> List[Dict]:
         """
@@ -31,7 +23,6 @@ class AniWorldClientWrapper:
         """
         try:
             results = search_media(keyword=query, only_return=True)
-            # Filter for anime, as search_media can also return movies
             return [r for r in results if r.get("type") == "anime"]
         except Exception as e:
             logging.error(f"Error finding show on AniWorld: {e}")
@@ -50,8 +41,16 @@ class AniWorldClientWrapper:
             if anime_slug.startswith("/"):
                 anime_slug = anime_slug[1:]
 
-
-            parsed_anime = menu(arguments=self.args, slug=anime_slug)
+            # The menu function now requires an arguments object.
+            # We can create a simple Namespace object with the necessary attributes.
+            args = Namespace(
+                language="de",
+                provider="Vidoza",
+                action="Download",
+                aniskip=False,
+                keep_watching=False
+            )
+            parsed_anime = menu(arguments=args, slug=anime_slug)
 
             if not parsed_anime:
                 logging.error(f"Could not parse anime details from slug: {anime_slug}")
@@ -76,13 +75,17 @@ class AniWorldClientWrapper:
 
             # The download action creates the file path, so we need to construct it
             # to return it.
-            from aniworld.action.common import sanitize_filename
+            from aniworld.common import sanitize_filename
             sanitized_title = sanitize_filename(anime_to_download.title)
-            filename = f"{sanitized_title} - S{season_number:02}E{episode_number:03} - ({self.args.language}).mp4"
+            filename = f"{sanitized_title} - S{season_number:02}E{episode_number:03} - ({args.language}).mp4"
             expected_filepath = self.download_path / sanitized_title / filename
 
+            # The download function from the library needs the output_dir to be set in the arguments.
+            from aniworld.parser import arguments
+            arguments.output_dir = str(self.download_path)
+
             logging.info(f"Starting download of {filename}")
-            download_action(anime_to_download, self.args, web_progress_callback=progress_callback)
+            download_action(anime_to_download, web_progress_callback=progress_callback)
             logging.info(f"Finished download of {filename}")
 
             return expected_filepath
